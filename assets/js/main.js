@@ -1,11 +1,21 @@
-import { Update as updateSnake, Draw as drawSnake, Snake_Speed} from "./snake.js"
+import { Update as updateSnake, Draw as drawSnake, Snake_Speed, getSnakeHead, eatSnakeBody } from "./snake.js";
+import { Update as updateFood, Draw as drawFood } from "./food.js";
+import { crashOutsideBox } from './grid.js';
 
+let gameOver = false;
 let lastRenderedTime = 0;
 const gameBoard = document.getElementById('game-board');
 
 function main(currentTime) {
+    if(gameOver){
+        if(confirm("Game Over! Press OK to Restart")){
+            window.location = "/";
+        }
+        return;
+    }
+
     window.webkitRequestAnimationFrame(main);
-    const secondsSinceLastRender = (currentTime - lastRenderedTime ) / 1000
+    const secondsSinceLastRender = (currentTime - lastRenderedTime) / 1000
 
     if (secondsSinceLastRender < 1 / Snake_Speed) {
         return
@@ -15,15 +25,22 @@ function main(currentTime) {
 
     Update();
     Draw();
+    CheckLose();
 }
 
 window.requestAnimationFrame(main)
 
 function Update(params) {
     gameBoard.innerHTML = '';
-    updateSnake()
+    updateSnake();
+    updateFood();
 }
 
 function Draw() {
-    drawSnake(gameBoard)
+    drawSnake(gameBoard);
+    drawFood(gameBoard);
+}
+
+function CheckLose(){
+    gameOver = crashOutsideBox(getSnakeHead()) || eatSnakeBody();
 }
