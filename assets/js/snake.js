@@ -1,6 +1,31 @@
 import { getControlDirections } from "./control.js";
 
-export const Snake_Speed = 7;
+export let Snake_Speed = 3;
+const Turbo_Power = 5;
+let Last_Speed = 3;
+
+// const snd = new Audio("file.wav");
+
+
+window.addEventListener('keyup', e => {
+    if (e.key == "Shift") {
+        Snake_Speed = Last_Speed
+
+        console.log("Speed: " + Snake_Speed)
+    }
+});
+
+window.addEventListener('keydown', e => {
+    if (e.key == "Shift") {
+
+        while (Snake_Speed <= (Last_Speed + Turbo_Power)) {
+            Snake_Speed += 3
+        }
+
+        console.log("Speed: " + Snake_Speed)
+    }
+});
+
 const snakeBody = [{ x: 11, y: 12 }]
 let newSegments = 0;
 
@@ -54,6 +79,7 @@ function addSegments(params) {
     for (let i = 0; i < newSegments; i++) {
         snakeBody.push({ ...snakeBody[snakeBody.length - 1] });
     }
+
 
     newSegments = 0;
 }
