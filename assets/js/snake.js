@@ -62,11 +62,11 @@ export function Update(params) {
             speedText.innerHTML = 7;
 
             break;
-        case 20:
-            levelText.innerHTML = 'Medium';
+        case 17:
             Snake_Speed = 9;
             Last_Speed = 9;
             speedText.innerHTML = 9;
+            // levelText.innerHTML = 'Medium';
 
             break;
         case 30:
@@ -79,14 +79,14 @@ export function Update(params) {
             Snake_Speed = 12;
             Last_Speed = 12;
             speedText.innerHTML = 12;
-            levelText.innerHTML = 'Hard'
+            // levelText.innerHTML = 'Hard'
 
             break;
         case 55:
             Snake_Speed = 13;
             Last_Speed = 13;
-            speedText.innerHTML = '13';
-            levelText.innerHTML = 'Expert'
+            speedText.innerHTML = 13;
+            // levelText.innerHTML = 'Expert'
 
             break;
     }
