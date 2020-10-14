@@ -1,7 +1,7 @@
 import { getControlDirections } from "./control.js";
 
-export let Snake_Speed = 2;
-let Last_Speed = 2;
+export let Snake_Speed = 1;
+let Last_Speed = 1;
 export let score = 0;
 let isPressedShift = false;
 const Turbo_Power = 5;
@@ -18,7 +18,7 @@ window.addEventListener('keyup', e => {
     }
 });
 
-function matchTurboSpeed(speed){
+function matchTurboSpeed(speed) {
     return speed + Turbo_Power;
 }
 
@@ -41,6 +41,11 @@ export function Update(params) {
     addSegments();
 
     switch (score) {
+        case 2:
+            Snake_Speed = 2;
+            Last_Speed = 2;
+            speedText.innerHTML = 2;
+            break;
         case 5:
             Snake_Speed = 3;
             Last_Speed = 3;
