@@ -10,6 +10,7 @@
 
 #game-board{
     background-color: #ccc;
+    border: 2px solid black;
     height: 100vh;
     width: 100vh;
     display: grid;

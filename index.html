@@ -16,16 +16,12 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-5 text-center pt-2">
-                <h1>JavaScript Snake Game</h1>
-                <form>
-                    <div class="form-group">
-                        <label for="nickNameInput">Nickname</label>
-                        <input type="text" class="form-control" id="nickNameInput" aria-describedby="nickName"
-                            placeholder="Enter your nickname">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+            <div class="col-md-5 text-center">
+                <h1 class="py-2">JavaScript Snake Game</h1>
+                <h4>High Score: </h4> <span id="-high-score-text">42</span>
+                <h4>Level: </h4> <span id="level-text">Easy</span>
+                <h4>Speed: </h4> <span id="speed-text">2</span>
+                <h4>Score: </h4> <span id="score-text">0</span>
             </div>
             <div class="col-md-7 text-center">
                 <div class="wrapper">
@@ -36,7 +32,6 @@
             </div>
         </div>
     </div>
-
     <script src="./assets/js/main.js" defer type="module"></script>
 </body>
 
